@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    font-family: 'Georgia', serif; /* Tipografía elegante */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    background: url('background1.png') no-repeat center center fixed;
+    background-size: cover;
+    animation: backgroundTransition 40s ease-in-out infinite;
+    background-blend-mode: multiply; /* Asegura una transición más fluida */
+}
+
+@keyframes backgroundTransition {
+    0% { background-image: url('background1.png'); }
+    25% { background-image: url('background2.png'); }
+    50% { background-image: url('background3.png'); }
+    75% { background-image: url('background4.png'); }
+    100% { background-image: url('background1.png'); }
+}
+
+h1 {
+    font-family: 'Georgia', serif;
+    font-size: 3rem;
+    margin-top: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.gallery-container {
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.gallery {
+    display: flex;
+    position: relative;
+    transition: transform 0.5s ease;
+}
+
+.gallery img {
+    max-width: 200px;
+    flex-shrink: 0;
+    margin: 0 20px;
+    transition: transform 0.3s ease, filter 0.3s ease, margin 0.3s ease;
+    filter: brightness(70%);
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra de imagen */
+}
+
+.gallery img:hover {
+    transform: scale(1.5);
+    filter: brightness(90%);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7); /* Sombra más pronunciada al pasar el mouse */
+}
+
+.gallery img.expanded {
+    transform: scale(1.7);
+    filter: brightness(100%);
+    z-index: 2;
+}
+
+.gallery img:active {
+    transform: scale(1.8);
+    filter: brightness(110%);
+    z-index: 3;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    padding: 0 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10; /* Asegura que los botones estén por encima de otros elementos */
+}
+
+.nav-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.left-button {
+    left: 10px;
+}
+
+.right-button {
+    right: 10px;
+}
